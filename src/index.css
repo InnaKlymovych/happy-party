@@ -1,0 +1,46 @@
+:root {
+--dark_green: #07672d;
+--dark_grey: #272727;
+--dark_grey_indigo: #383550;
+--green: #59d088;
+--blue: #6787c7;
+--pastel_blue: #6fa3fd;
+--azure: #79b7eb;
+--lavander: #a359d0;
+--light_blue: #b4ccff;
+--gray_orange: #c56824;
+--vivid_red: #ed2626;
+--vivid_red2: #ed4426;
+--vivid_orange: #f26641;
+--orange: #f2ae1c;
+--light_yellow: #f2eddb;
+--light_crimson: #f7a4bd;
+--orange2: #fecc5d;
+}
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@font-face {
+  font-family: 'Arturo';
+  src: url('./assets/arturo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.section {
+  background: var(--light_blue);
+  padding: 5px 10px;
+  text-align: center;
+  
+}
+
+
+.line {
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+}

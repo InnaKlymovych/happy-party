@@ -1,0 +1,18 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  font-family: 'Arturo', sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--dark_grey);
+}
+
+.menu a:hover {
+  color: var(--vivid_red2);
+}
