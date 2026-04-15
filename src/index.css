@@ -44,3 +44,7 @@ body {
   gap: 8px;
   font-size: 18px;
 }
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}

@@ -1,6 +1,7 @@
 import balloons from './assets/logo.png';
 import Menu from './components/menu.tsx';
 import Hero from './components/hero.tsx';
+import PartyTypes from './components/partyTypes.tsx';
 
 function App() {
   return (
@@ -20,13 +21,14 @@ function App() {
         alignItems: "center",      // center horizontally ✅
         justifyContent: "flex-start", // top position ✅
         paddingTop: "40px",
+        
     }}>
       
       <img style={{ width: "120px" , marginBottom: "10px" }} src={balloons} alt="balloons" />
     </div>
     <Menu />
     <Hero />
-    
+    <PartyTypes/>
 
     </div>
   );
