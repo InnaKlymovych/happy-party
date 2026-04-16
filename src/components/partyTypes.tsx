@@ -28,7 +28,7 @@ function PartyTypes() {
     display: "flex",
     overflowX: "auto",
     gap: "20px",
-    padding: "10px 20px 20px",
+    padding: "10px 10px 20px",
     scrollSnapType: "x mandatory",
   }}
 >
@@ -36,7 +36,8 @@ function PartyTypes() {
     <div
       key={index}
       style={{
-        minWidth: "260px",
+        minWidth: "80%",
+        maxWidth: "300px",
         flex: "0 0 auto",
         borderRadius: "20px",
         overflow: "hidden",
