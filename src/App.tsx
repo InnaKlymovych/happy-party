@@ -7,13 +7,8 @@ function App() {
   return (
     <div>
       <div className="section">
-  <p className="line">
-    <span>✨</span>
-    <span>We offer holiday programs for all ages</span>
-    
-    <span>✨</span>
-    <span>Пропонуємо святкові програми для будь-якого віку</span>
-  </p>
+  <p>✨ We offer holiday programs for all ages</p>
+  <p>✨ Пропонуємо святкові програми для будь-якого віку</p>
 </div>
     <div style={{
         display: "flex",
