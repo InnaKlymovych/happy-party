@@ -8,11 +8,18 @@
   text-transform: uppercase;
 }
 
-.menu a {
+.menu button,
+.menu-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: inherit;
   text-decoration: none;
-  color: var(--dark_grey);
 }
 
-.menu a:hover {
-  color: var(--vivid_red2);
+.menu button:hover,
+.menu-link:hover {
+  color: var(--blue);
 }

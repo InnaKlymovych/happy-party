@@ -17,11 +17,7 @@
 --light_crimson: #f7a4bd;
 --orange2: #fecc5d;
 }
-body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden;
-}
+
 
 html, body, #root {
   margin: 0;
@@ -29,6 +25,7 @@ html, body, #root {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -53,15 +50,16 @@ html, body, #root {
   
 }
 
-
-.line {
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  font-size: 18px;
+.scroll-container {
+  scrollbar-width: none;
 }
 
 .scroll-container::-webkit-scrollbar {
   display: none;
+}
+
+@media (max-width: 768px) {
+  .arrow-btn {
+    display: none;
+  }
 }

@@ -39,7 +39,7 @@ function Hero() {
           zIndex: "1",
         }}
       >
-        {/* ENGLISH */}
+        
         <h2
           style={{
             color: "var(--light_blue)",
@@ -53,19 +53,7 @@ function Hero() {
           heart, and love for you ❤️
         </h2>
 
-        {/* UKRAINIAN */}
-        <p
-          style={{
-            margin: 0,
-            fontFamily: "Montserrat",
-            fontSize: "18px",
-            lineHeight: "1.3",
-            color: "var(--dark_grey_indigo)",
-            fontWeight: 600,
-          }}
-        >
-          Happy Party - це завжди свято з душею та любов'ю до вас
-        </p>
+
       </div>
 
       <h2 style={{
@@ -75,7 +63,7 @@ function Hero() {
     color: "var(--dark_grey_indigo)",
     }}
     >
-    Our Packages
+    Step 1: Choose Your Package
     </h2>
       <img
   src={price}
@@ -89,37 +77,7 @@ function Hero() {
     boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
   }}
 />
-<button
-  style={{
-    marginTop: "25px",
-    padding: "14px 30px",
-    fontSize: "18px",
-    fontWeight: "bold",
-    borderRadius: "30px",
-    border: "none",
-    background: "linear-gradient(45deg, #ff7eb3, #65d6ff)",
-    color: "white",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-    boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
-  }}
-  onMouseOver={(e) => {
-    e.currentTarget.style.transform = "scale(1.08)";
-    e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.3)";
-  }}
-  onMouseOut={(e) => {
-    e.currentTarget.style.transform = "scale(1)";
-    e.currentTarget.style.boxShadow = "0 8px 20px rgba(0,0,0,0.2)";
-  }}
-  onMouseDown={(e) => {
-    e.currentTarget.style.transform = "scale(0.95)";
-  }}
-  onMouseUp={(e) => {
-    e.currentTarget.style.transform = "scale(1.08)";
-  }}
->
-  🎉 Book Your Party
-</button>
+
     </div>
   );
 }
