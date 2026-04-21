@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 function Contacts() {
   const navigate = useNavigate();
@@ -16,6 +17,8 @@ function Contacts() {
     message: "",
   });
 
+  const [isSending, setIsSending] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -25,30 +28,57 @@ function Contacts() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    console.log("Booking form data:", form);
-    alert("Your request has been sent!");
+    setIsSending(true);
 
-    setForm({
-      name: "",
-      email: "",
-      phone: "",
-      packageType: "",
-      location: "",
-      age: "",
-      theme: "",
-      date: "",
-      message: "",
-    });
+    try {
+      await emailjs.send(
+        "service_opig0zy",
+        "template_k71kn66",
+        {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          location: form.location,
+          age: form.age,
+          packageType: form.packageType,
+          theme: form.theme,
+          date: form.date,
+          message: form.message,
+        },
+        {
+          publicKey: "XMh9miRLTLsWYb5E6",
+        }
+      );
+
+      alert("Your booking request has been sent!");
+
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        packageType: "",
+        location: "",
+        age: "",
+        theme: "",
+        date: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      alert("Sorry, something went wrong. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <div
       style={{
         minHeight: "100vh",
-        padding: "50px 20px",
+        padding: "20px 16px 90px",
         background: "#f8f8f8",
       }}
     >
@@ -60,20 +90,16 @@ function Contacts() {
       >
         <div
           style={{
-            marginBottom: "20px",
+            marginBottom: "16px",
+            position: "sticky",
+            top: "10px",
+            zIndex: 20,
           }}
         >
           <button
             onClick={() => navigate("/")}
-            style={{
-              padding: "10px 20px",
-              borderRadius: "25px",
-              border: "none",
-              background: "linear-gradient(45deg, #ccc, #eee)",
-              cursor: "pointer",
-              fontWeight: "bold",
-              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-            }}
+            type="button"
+            style={backButtonStyle}
           >
             ← Back
           </button>
@@ -83,13 +109,12 @@ function Contacts() {
           style={{
             background: "white",
             borderRadius: "24px",
-            padding: "35px 25px",
+            padding: "24px 18px",
             boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
           }}
         >
           <h2
             style={{
-              fontFamily: "Arturo",
               fontSize: "32px",
               textAlign: "center",
               color: "var(--dark_grey_indigo)",
@@ -220,15 +245,13 @@ function Contacts() {
 
             <button
               type="submit"
-              style={submitButtonStyle}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = "scale(1.03)";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
+              disabled={isSending}
+              style={{
+                ...submitButtonStyle,
+                opacity: isSending ? 0.7 : 1,
               }}
             >
-              ✨ Send Booking Request
+              {isSending ? "Sending..." : "✨ Send Booking Request"}
             </button>
           </form>
 
@@ -261,7 +284,8 @@ const inputStyle: React.CSSProperties = {
 };
 
 const submitButtonStyle: React.CSSProperties = {
-  padding: "14px 28px",
+  width: "100%",
+  padding: "16px 20px",
   borderRadius: "30px",
   border: "none",
   background: "linear-gradient(45deg, #ff7eb3, #65d6ff)",
@@ -271,6 +295,17 @@ const submitButtonStyle: React.CSSProperties = {
   cursor: "pointer",
   boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
   transition: "transform 0.2s ease",
+  marginTop: "8px",
+};
+
+const backButtonStyle: React.CSSProperties = {
+  padding: "10px 20px",
+  borderRadius: "25px",
+  border: "none",
+  background: "white",
+  cursor: "pointer",
+  fontWeight: "bold",
+  boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
 };
 
 export default Contacts;
