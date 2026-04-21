@@ -1,38 +1,55 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./menu.css";
 
 function Menu() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
+    setOpen(false); // close menu on click
+
     if (location.pathname !== "/") {
-      navigate("/"); // go to home first
+      navigate("/");
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      }, 100); // wait for page render
+      }, 100);
     } else {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="menu">
-      <button onClick={() => scrollToSection("entertainers")}>
-        ENTERTAINERS
+    <div className="menu-wrapper">
+      
+      {/* MOBILE BUTTON */}
+      <button className="menu-toggle" onClick={() => setOpen(!open)}>
+        ☰
       </button>
 
-      <button onClick={() => scrollToSection("about")}>
-        ABOUT
-      </button>
+      {/* MENU */}
+      <div className={`menu ${open ? "open" : ""}`}>
+        <button onClick={() => scrollToSection("entertainers")}>
+          GALLERY
+        </button>
 
-      <button onClick={() => scrollToSection("activities")}>
-        ACTIVITIES
-      </button>
+        <button onClick={() => scrollToSection("about")}>
+          ABOUT
+        </button>
 
-      <Link to="/contact" className="menu-link">
-        BOOK NOW
-      </Link>
+        <button onClick={() => scrollToSection("activities")}>
+          ACTIVITIES
+        </button>
+
+        <Link
+          to="/contact"
+          className="menu-link"
+          onClick={() => setOpen(false)}
+        >
+          BOOK NOW
+        </Link>
+      </div>
     </div>
   );
 }
