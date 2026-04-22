@@ -35,6 +35,8 @@ function Contacts() {
     e.preventDefault();
     setIsSending(true);
 
+    console.log("FORM DATA:", form);
+
     try {
       await emailjs.send(
         "service_opig0zy",
@@ -68,9 +70,9 @@ function Contacts() {
         date: "",
         message: "",
       });
-    } catch (error) {
-      console.error("EmailJS error:", error);
-      alert("Sorry, something went wrong. Please try again.");
+    } catch (error: unknown) {
+      console.error("EmailJS error full:", error);
+      alert(error instanceof Error ? error.message : "Sorry, something went wrong. Please try again.");
     } finally {
       setIsSending(false);
     }
@@ -271,29 +273,30 @@ function Contacts() {
           >
             <p style={{ margin: 0 }}>📞 +1 (403) 383-2797</p>
             <p style={{ margin: 0 }}>✉️ ilonamarchenko560@gmail.com</p>
-<a
-  href="https://www.instagram.com/happy_party_event_agency/"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: "10px",
-    fontSize: "28px",
-    color: "#E1306C",
-    cursor: "pointer",
-    transition: "0.3s",
-  }}
-  onMouseOver={(e) => {
-    e.currentTarget.style.transform = "scale(1.2)";
-  }}
-  onMouseOut={(e) => {
-    e.currentTarget.style.transform = "scale(1)";
-  }}
->
-  <FaInstagram />
-</a>
+
+            <a
+              href="https://www.instagram.com/happy_party_event_agency/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: "10px",
+                fontSize: "28px",
+                color: "#E1306C",
+                cursor: "pointer",
+                transition: "0.3s",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "scale(1.2)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+            >
+              <FaInstagram />
+            </a>
           </div>
         </div>
       </div>
