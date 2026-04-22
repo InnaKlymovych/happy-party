@@ -68,10 +68,10 @@
     display: none;
     flex-direction: column;
     gap: 15px;
-    background: white;
+    background: linear-gradient(135deg, #ffedf5, #e6f7ff);
     padding: 18px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 20px rgba(97, 198, 216, 0.952);
     position: absolute;
     top: 45px;
     left: 50%;

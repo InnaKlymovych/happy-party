@@ -20,6 +20,10 @@
 
 
 html, body, #root {
+  background-image: url("./assets/back.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   width: 100%;
