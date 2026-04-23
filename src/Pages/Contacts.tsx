@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import back from "../assets/back.jpg";
 import { FaInstagram } from "react-icons/fa";
@@ -7,12 +7,13 @@ import { FaInstagram } from "react-icons/fa";
 
 function Contacts() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
-    packageType: "",
+    packageType: location.state?.packageType || "",
     location: "",
     age: "",
     theme: "",

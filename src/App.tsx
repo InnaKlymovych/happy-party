@@ -5,6 +5,7 @@ import Hero from './components/hero';
 import PartyTypes from './components/partyTypes';
 import Contacts from "./Pages/Contacts";
 import { FaInstagram } from "react-icons/fa";
+import Footer from "./components/footer";
 
 function Home() {
   return (
@@ -62,6 +63,8 @@ function Home() {
       <div id="activities">
         <PartyTypes />
       </div>
+
+      <Footer />
     </div>
   );
 }

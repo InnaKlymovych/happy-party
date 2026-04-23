@@ -1,7 +1,19 @@
 import heroImg from "../assets/hero.jpg";
-import price from "../assets/programs/CE450B7B-CCA0-4B7A-881E-35765B555FC9.png";
+import { useNavigate } from "react-router-dom";
+import price1 from "../assets/programs/mini-party.png";
+import price2 from "../assets/programs/big-party.png";
+import price3 from "../assets/programs/luxury-party.png";
 
 function Hero() {
+
+  const navigate = useNavigate();
+
+  const packages = [
+    { img: price1, alt: "Mini Party package", packageType: "Mini Party" },
+    { img: price2, alt: "Big Party package" , packageType: "Big Party" },
+    { img: price3, alt: "Luxury Party package" , packageType: "Luxury Party" },
+  ];
+
   return (
     <div
       style={{
@@ -48,8 +60,6 @@ function Hero() {
         >
           About Us 🎉
         </h2>
-
-        {/* Desktop version */}
         <div className="about-full">
           <p className="hero-about-text">
             We are a professional kids entertainment team creating unforgettable
@@ -79,10 +89,9 @@ function Hero() {
           </p>
         </div>
 
-        {/* Mobile version */}
         <div className="about-short">
           <p className="hero-about-text">
-            We create fun and unforgettable parties for kids 
+            We create fun and unforgettable parties for kids
           </p>
 
           <p className="hero-about-text">
@@ -105,18 +114,56 @@ function Hero() {
         Step 1: Choose Your Package
       </h2>
 
-      <img
-        src={price}
-        alt="price packages"
+      <div
         style={{
-          width: "100%",
-          maxWidth: "600px",
-          margin: "40px auto",
-          display: "block",
-          borderRadius: "20px",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "stretch",
+          gap: "16px",
+          flexWrap: "wrap",
+          padding: "20px 16px 40px",
+          maxWidth: "1100px",
+          margin: "0 auto",
         }}
-      />
+      >
+        {packages.map((item, index) => (
+          <div
+            key={index}
+            onClick={() =>
+              navigate("/contact", { state: { packageType: item.packageType } })
+            }
+            style={{
+              flex: "0 1 300px",
+              maxWidth: "300px",
+              minWidth: "220px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+              objectFit: "contain",
+              background: "#fff",
+              transition: "transform 0.3s ease",
+              cursor: "pointer",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "translateY(-6px) scale(1.03)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "translateY(0) scale(1)";
+            }}
+          >
+            <img
+              src={item.img}
+              alt={item.alt}
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                objectFit: "contain",
+              }}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
