@@ -53,7 +53,7 @@ function Contacts() {
           message: form.message,
         },
         {
-          publicKey: "XMh9miRLTLSWb5E6",
+          publicKey: "-FFJYnXxV0VFwU-A8",
         }
       );
 
@@ -70,12 +70,20 @@ function Contacts() {
         date: "",
         message: "",
       });
-    } catch (error: unknown) {
-      console.error("EmailJS error full:", error);
-      alert(error instanceof Error ? error.message : "Sorry, something went wrong. Please try again.");
-    } finally {
-      setIsSending(false);
-    }
+ } catch (error: unknown) {
+  console.error("EmailJS error full:", error);
+
+  const message =
+    error && typeof error === "object" && "text" in error
+      ? String((error as { text?: string }).text)
+      : error instanceof Error
+      ? error.message
+      : "Sorry, something went wrong. Please try again.";
+
+  alert(message);
+} finally {
+  setIsSending(false);
+}
   };
 
   return (
