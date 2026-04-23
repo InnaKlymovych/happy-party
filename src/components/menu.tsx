@@ -30,9 +30,9 @@ function Menu() {
 
       {/* MENU */}
       <div className={`menu ${open ? "open" : ""}`}>
-        <button onClick={() => scrollToSection("entertainers")}>
+        <Link to="/gallery" className="menu-link">
           GALLERY
-        </button>
+        </Link>
 
         <button onClick={() => scrollToSection("about")}>
           ABOUT

@@ -3,6 +3,7 @@ import balloons from './assets/logo.png';
 import Menu from './components/menu';
 import Hero from './components/hero';
 import PartyTypes from './components/partyTypes';
+import Gallery from "./Pages/Gallery";
 import Contacts from "./Pages/Contacts";
 import { FaInstagram } from "react-icons/fa";
 import Footer from "./components/footer";
@@ -73,6 +74,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/gallery" element={<Gallery />} />
       <Route path="/contact" element={<Contacts />} />
     </Routes>
   );
