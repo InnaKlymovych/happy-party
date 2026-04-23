@@ -34,13 +34,19 @@ function Menu() {
           GALLERY
         </Link>
 
-        <button onClick={() => scrollToSection("about")}>
-          ABOUT
-        </button>
+<button
+  className="menu-link"
+  onClick={() => scrollToSection("about")}
+>
+  ABOUT
+</button>
 
-        <button onClick={() => scrollToSection("activities")}>
-          ACTIVITIES
-        </button>
+<button
+  className="menu-link"
+  onClick={() => scrollToSection("activities")}
+>
+  ACTIVITIES
+</button>
 
         <Link
           to="/contact"
