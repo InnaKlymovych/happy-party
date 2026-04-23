@@ -25,7 +25,6 @@ function PartyTypes() {
     <div style={{ padding: '40px 20px' }}>
       <h2
         style={{
-          fontFamily: 'Arturo',
           fontSize: '28px',
           marginBottom: '25px',
           textAlign: 'center',

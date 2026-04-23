@@ -5,7 +5,6 @@ function Hero() {
   return (
     <div
       style={{
-        fontFamily: "Arturo",
         backgroundColor: "var(--sky_blue)",
         paddingTop: "40px",
         textAlign: "center",
@@ -42,7 +41,6 @@ function Hero() {
         <h2
           style={{
             color: "var(--light_blue)",
-            fontFamily: "Arturo",
             margin: "0 0 20px",
             fontSize: "30px",
             lineHeight: "1.2",
@@ -88,18 +86,17 @@ function Hero() {
           </p>
 
           <p className="hero-about-text">
-            Games, favorite characters, and exciting entertainment for any event.
+            Games, favorite characters and exciting entertainment for any event.
           </p>
 
           <p className="hero-about-text">
-            You enjoy the moment — we handle the magic 💖
+            You enjoy the moment - we handle the magic 💖
           </p>
         </div>
       </div>
 
       <h2
         style={{
-          fontFamily: "Arturo",
           fontSize: "28px",
           marginTop: "40px",
           color: "var(--dark_grey_indigo)",

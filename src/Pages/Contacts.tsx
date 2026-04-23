@@ -149,7 +149,7 @@ function Contacts() {
               lineHeight: "1.5",
             }}
           >
-            Ready to book your perfect party? Fill out the form below and we will
+            Fill out the form below and we will
             contact you soon 🎉
           </p>
 
